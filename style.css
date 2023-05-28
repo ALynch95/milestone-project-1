@@ -1,0 +1,67 @@
+h1 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .column {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+    
+  li {
+    margin-bottom: 5px;
+    text-align: center;
+    padding: 30px 0px 10px 20px;
+    font-size: 20px;
+    background-color: lightgray;
+    border-radius: 10px;
+    max-width: 250px;
+    min-width: 250px;
+    position: relative;
+  }
+
+#column1 {
+    list-style: none;
+    padding: 0px 0px 0px 1000px;
+    position: relative;
+}
+
+#column2 {
+    list-style: none;
+    padding: 0px 1000px 0px 0px;
+    position: relative;
+}
+
+p {
+    background-color: darkblue;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    margin: -45px 0px 0px 0px ;
+    padding: 9px 5px 8px 5px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#one, #two, #three, #four, #five, #six, #seven, #eight, #nine {
+    padding: 9px 10px 8px 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.draw-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+.instru-button {
+    margin-top: 20px;
+    text-align: center;
+}
