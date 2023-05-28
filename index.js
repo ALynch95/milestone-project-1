@@ -7,3 +7,9 @@ function randomNumber(min, max) {
   function num() { 
     document.getElementById("result").innerHTML = rndNum; 
  } 
+
+ let btn = document.getElementById('draw');
+
+ btn.addEventListener('click', function() {
+    btn.style.display = 'none';
+ })
