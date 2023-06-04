@@ -65,35 +65,42 @@ numbs.forEach( e => {
     let gameNumber = new Number()
   })
 
-  function checkAscendingOrder() {
-    let listItems = document.querySelectorAll('.numb');
-    let numbers = [];
-    let valid = true;
-  
-    listItems.forEach(function(item) {
-      if (item.innerHTML) {
-        numbers.push(parseInt(item.innerHTML));
-      }
-    });
-  
-    for (let i = 1; i < numbers.length; i++) {
-      if (numbers[i] < numbers[i - 1]) {
-        valid = false;
-        break;
-      }
+function checkAscendingOrder() {
+  let listItems = document.querySelectorAll('.numb');
+  let numbers = [];
+  let valid = true;
+  let allFilled = true;
+
+  listItems.forEach(function(item) {
+    if (item.innerHTML) {
+      numbers.push(parseInt(item.innerHTML));
+    } else {
+      allFilled = false;
     }
-  
-    console.log('Numbers:', numbers);
-    console.log('Ascending Order:', valid);
-  
-    if (!valid) {
-      document.getElementById('draw').style.display = 'none';
-      document.getElementById('retry').style.display = 'initial';
-      document.getElementById('message').innerHTML = 'You Lose!';
+  });
+
+  for (let i = 1; i < numbers.length; i++) {
+    if (numbers[i] < numbers[i - 1]) {
+      valid = false;
+      break;
     }
-  
-    return valid;
   }
+
+  console.log('Numbers:', numbers);
+  console.log('Ascending Order:', valid);
+
+  if (!valid) {
+    document.getElementById('draw').style.display = 'none';
+    document.getElementById('retry').style.display = 'initial';
+    document.getElementById('message').innerHTML = 'You Lose!';
+  } else if (allFilled) {
+    document.getElementById('draw').style.display = 'none';
+    document.getElementById('retry').style.display = 'initial';
+    document.getElementById('message').innerHTML = 'You Win!';
+  }
+
+  return valid;
+}
 
   let retryBtn = document.getElementById('retry');
 retryBtn.addEventListener('click', function() {
