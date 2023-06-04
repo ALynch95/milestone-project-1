@@ -86,8 +86,8 @@ function checkAscendingOrder() {
     }
   }
 
-  console.log('Numbers:', numbers);
-  console.log('Ascending Order:', valid);
+  // console.log('Numbers:', numbers);
+  // console.log('Ascending Order:', valid);
 
   if (!valid) {
     document.getElementById('draw').style.display = 'none';
