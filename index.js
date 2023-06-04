@@ -1,3 +1,7 @@
+let listItems = Array.from(document.querySelectorAll('.numb'));
+
+console.log(listItems);
+
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
@@ -15,7 +19,7 @@ btn.addEventListener('click', function() {
  });
 
 function enableListItems() {
-    let listItems = document.querySelectorAll('li[data-number]');
+    let listItems = document.querySelectorAll('li[data-value]');
     for (let i = 0; i < listItems.length; i++) {
     if (!listItems[i].innerHTML){
         listItems[i].addEventListener('click', placeNumber)
@@ -28,7 +32,7 @@ function enableListItems() {
     }
 
 function disableListItems() {
-    let listItems = document.querySelectorAll('li[data-number]');
+    let listItems = document.querySelectorAll('li[data-value]');
     for (let i = 0; i < listItems.length; i++) {
         listItems[i].removeEventListener('click', placeNumber)
         listItems[i].classList.add('disabled');
@@ -39,21 +43,70 @@ function disableListItems() {
     if (!this.innerHTML) {
         let rndNum = document.getElementById('result').innerHTML
         this.innerHTML = rndNum;
+        this.dataset.value = rndNum;
         document.getElementById('result').innerHTML = '';
         disableListItems();
         btn.style.display = 'initial';
 
-        let listItems = document.querySelectorAll("li[data-number]");
+        let listItems = document.querySelectorAll("li[data-value]");
         for (let i = 0; i < listItems.length; i++) {
           listItems[i].classList.remove("highlight");
+
         }
+        checkAscendingOrder();
+      }
     }
- }
+
 
 let numbs = document.querySelectorAll('.numb')
 
 numbs.forEach( e => {
-    let number =  new Number(e.dataset.number)
+    let number =  new Number(e.dataset.value)
     let gameNumber = new Number()
-    console.log(gameNumber)
   })
+
+  function checkAscendingOrder() {
+    let listItems = document.querySelectorAll('.numb');
+    let numbers = [];
+    let valid = true;
+  
+    listItems.forEach(function(item) {
+      if (item.innerHTML) {
+        numbers.push(parseInt(item.innerHTML));
+      }
+    });
+  
+    for (let i = 1; i < numbers.length; i++) {
+      if (numbers[i] < numbers[i - 1]) {
+        valid = false;
+        break;
+      }
+    }
+  
+    console.log('Numbers:', numbers);
+    console.log('Ascending Order:', valid);
+  
+    if (!valid) {
+      document.getElementById('draw').style.display = 'none';
+      document.getElementById('retry').style.display = 'initial';
+      document.getElementById('message').innerHTML = 'You Lose!';
+    }
+  
+    return valid;
+  }
+
+  let retryBtn = document.getElementById('retry');
+retryBtn.addEventListener('click', function() {
+  resetGame();
+});
+
+function resetGame() {
+  listItems.forEach(function(item) {
+    item.innerHTML = '';
+    item.dataset.value = '';
+    item.classList.remove('highlight', 'disabled', 'lower', 'higher');
+  });
+  document.getElementById('message').innerHTML = '';
+  btn.style.display = 'initial';
+  retryBtn.style.display = 'none';
+}

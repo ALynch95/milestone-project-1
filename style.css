@@ -9,7 +9,6 @@ html,body
 }
 
 body {
-  /* background-image: url('/assets/NumberSpace.jpg'); */
   background-image: url(https://cdn4.vectorstock.com/i/1000x1000/24/13/digital-space-background-with-stars-and-numbers-vector-15772413.jpg);
   background-repeat: no-repeat;
   background-position: center center;
@@ -107,8 +106,18 @@ h1 {
   font-size: 20px;
 }
 
+#message {
+  color: White;
+  font-size: 40px;
+}
 
-/* .instru-button {
-    margin-top: 20px;
-    text-align: center;
-} */
+#retry {
+  background-color: rgb(182, 26, 26);
+  color: white;
+  outline: none;
+  border: none;
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 25px;
+}
