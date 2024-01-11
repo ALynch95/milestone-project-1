@@ -1,6 +1,6 @@
 let listItems = Array.from(document.querySelectorAll('.numb'));
 
-console.log(listItems);
+// console.log(listItems);
 
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
@@ -58,12 +58,12 @@ function disableListItems() {
     }
 
 
-let numbs = document.querySelectorAll('.numb')
+// let numbs = document.querySelectorAll('.numb')
 
-numbs.forEach( e => {
-    let number =  new Number(e.dataset.value)
-    let gameNumber = new Number()
-  })
+// numbs.forEach( e => {
+//     let number =  new Number(e.dataset.value)
+//     let gameNumber = new Number()
+//   })
 
 function checkAscendingOrder() {
   let listItems = document.querySelectorAll('.numb');
